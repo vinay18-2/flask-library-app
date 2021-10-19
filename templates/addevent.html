@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseMetrics - Teacher</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <h3 class="logo">CourseMatrics</h3>
+        <h5>Navigation</h5>
+        <!-- <button class="dropdown-btn sidenav-active-link"><span><i class="fa fa-tachometer"></i> Dashboard</span><span><i
+                    class="fa fa-angle-down fa-lg" style="float: right;"></i></span> </button>
+        <div class="dropdown-container sidenav-active-set">
+            <a href=""><button><i class="fa fa-angle-right"></i> Default</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i> CRM</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i> Analytics</button></a>
+        </div> -->
+        <a href="index.html"><button class=""><i class="fa fa-tachometer"></i>Home</button></a>
+        <h5>Student</h5>
+        <a href="student.html"><button class=""><i class="fa fa-file"></i> Student Dashboard</button></a>
+        <a href="student_attendance.html"><button class=""><i class="fa fa-book"></i>
+                Attendance</button></a>
+        <h5>Teacher</h5>
+        <a href="attendance_form.html"><button class="sidenav-active-link"><i class="fa fa-paperclip"></i>
+                Attendance Form</button></a>
+        <a href="teachers_marks.html"><button class=""><i class=" fa fa-line-chart"></i>
+                    Marks Analysis</button></a>
+        <h5>Admin</h5>
+        <a href="admin_confirm.html"><button class=""><i class="fa fa-paperclip"></i>
+            Student Confirmation</button></a>
+        <!--<button class=""><i class="fa fa-rocket"></i> Widget</button>
+        <h5>UI Widgets</h5>
+        <button class="dropdown-btn"><i class="fa fa-cube"></i>Basic<i class="fa fa-angle-down fa-lg"
+                style="float: right;"></i></button>
+        <div class="dropdown-container">
+            <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
+        </div>
+        <button class="dropdown-btn"><i class="fa fa-paint-brush"></i>Advanced<i class="fa fa-angle-down fa-lg"
+                style="float: right;"></i></button>
+        <div class="dropdown-container">
+            <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
+        </div>
+        <button class="dropdown-btn"><i class="fa fa-puzzle-piece"></i>Extra<i class="fa fa-angle-down fa-lg"
+                style="float: right;"></i></button>
+        <div class="dropdown-container">
+            <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
+        </div>
+        <button class="dropdown-btn"><i class="fa fa-video-camera"></i>Animations<i class="fa fa-angle-down fa-lg"
+                style="float: right;"></i></button>
+        <div class="dropdown-container">
+            <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
+            <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
+
+        </div>-->
+        <div>
+
+            <a href="javascipt:void(0)" class="closebtn">
+                <i class="fa fa-angle-left" onclick="toggleF()"></i>
+            </a>
+        </div>
+
+    </div>
+    <div class="flexArea" id="flexArea">
+        <div class="navbar">
+            <div class="openbtnhide"><a href="javascipt:void(0)"></a><i class="fa fa-bars fa-lg "
+                    onclick="toggleF()"></i>
+                </a></div>
+            <div>
+
+            </div>
+
+            <ul id="usernav">
+
+                <li><i class="fa fa-bell fa-lg"></i></li>
+                <li><i class="fa fa-comment-o fa-lg"></i></li>
+
+                <li><i class="fa fa-user fa-lg"></i> Hayden Cordeiro</li>
+            </ul>
+
+
+        </div>
+
+
+
+        <div class="content-area">
+            <div class="flexContainer" id="dashboardLineContainer">
+                <div class="flex-40 dashboardLine">
+                    <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
+                    <div style="margin-bottom: 0;margin-top: 0;">
+                        <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Teacher Dashboard</small> </h3>
+                        <p style="margin-bottom: 0;margin-top: 0;"><small>Class Attendance</small> </p>
+                    </div>
+
+                </div>
+                <div class="flex-40-end">
+                    <ul class="breadcrumb" style="float: right;">
+                        <li><a href="#"><i class="fa fa-home"></i></a></li>
+                        <li><small>Teacher</small></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin: 1% 2.5% 1% 2.5%;">Add Event</h2>
+
+        <!-- <div style=""> -->
+        
+        <div class="cardRow2 tablecard">
+            <div style="display: flex;flex-wrap: wrap;" class="table_inside_row">
+                <div style="flex:0 0 30%; flex-grow: 3;">
+                    <h2 >Select Chapter:</h2>
+                    <div class="dropdown">
+                        <button class="dropbtn">Student Chapter<i class="fa fa-caret-down" aria-hidden="true"
+                                style="margin-left: 10px;"></i></button>
+                        <div class="dropdown-content">
+                            <a href="#">ACM</a>
+                            <a href="#">CSI</a>
+                            <a href="#">IEEE</a>
+                            <a href="#">Domain</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex:0 0 30%; flex-grow: 3; margin-top: 1.5%;">
+                    <h2 >Select Year:</h2>
+                    <div class="dropdown">
+                        <button class="dropbtn">Year<i class="fa fa-caret-down" aria-hidden="true"
+                                style="margin-left: 10px;"></i></button>
+                        <div class="dropdown-content">
+                            <a href="#">FE</a>
+                            <a href="#">SE</a>
+                            <a href="#">TE</a>
+                            <a href="#">BE</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex:0 0 30%; margin-top: 1.5%;">
+                    <h2>Select Date:</h2>
+                    <div class="dropdown">
+                        <input type="date" name="" id="" class="dropinput" style="outline: none;">
+                    </div>
+                </div>
+                <div style="flex:0 0 30%;flex-grow: 3;">
+                    <h2>Event Title:</h2>
+                    <input type="text" id="search_box" placeholder="Event Name" style="margin: 1%;width: 90%;">
+                </div>
+                
+            </div>
+            <div style="display: flex;flex-wrap: wrap;" class="table_inside_row">
+                <div style="flex:0 0 30%; margin-top: 1.5%;">
+                    <h2>Time From:</h2>
+                    <div class="dropdown">
+                        <input type="time" name="" id="" class="dropinput" style="outline: none;" placeholder="From">
+                    </div>
+                </div>
+                <div style="flex:0 0 30%; margin-top: 1.5%;">
+                    <h2>Time To:</h2>
+                    <div class="dropdown">
+                        <input type="time" name="" id="" class="dropinput" style="outline: none;" placeholder="From">
+                    </div>
+                </div>
+                
+                <div style="flex:0 0 25%; margin-top: 1.5%;">
+                    <h2>Fees:</h2>
+                    <input type="text" id="search_box" placeholder="Amount" style="margin: 1%;width: 80%;">
+                </div>
+            </div>
+            <div style="margin-top: 1.5%;">
+                <div class="dropdown">
+                    <button class="dropbtn btn-success" >Submit</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- </div> -->
+        <br><br>
+
+        <!-- Footer -->
+        <div class="navbar" style="display: flex;justify-content: center;align-items: center; color: #A9A9A9;">
+            <h4>Copyrights @ CourseMetrics 2020</h4>
+        </div>
+
+    </div>
+
+
+
+    </div>
+    <script src="js/script.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#search_box").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#attendance_form_table_data tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

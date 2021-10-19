@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseMetrics - Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <h3 class="logo">CourseMatrics</h3>
+        <h5>Navigation</h5>
+
+        <a href="index.html"><button class=""><i class="fa fa-tachometer"></i>Home</button></a>
+        <h5>Student</h5>
+        <a href="student.html"><button class=""><i class="fa fa-file"></i> Student Dashboard</button></a>
+        <a href="student_attendance.html"><button class=""><i class="fa fa-book"></i>
+                Attendance</button></a>
+        <h5>Teacher</h5>
+        <a href="attendance_form.html"><button class=""><i class="fa fa-paperclip"></i>
+                Attendance Form</button></a>
+        <a href="teachers_marks.html"><button class=""><i class=" fa fa-line-chart"></i>
+                Marks Analysis</button></a>
+        <h5>Admin</h5>
+        <a href="admin_confirm.html"><button class=""><i class="fa fa-paperclip"></i>
+                Student Confirmation</button></a>
+
+        <a href="add_teacher.html"><button class="sidenav-active-link"><i class="fa fa-file"></i>
+                Add Teacher</button></a>
+
+        <div>
+
+            <a href="javascipt:void(0)" class="closebtn">
+                <i class="fa fa-angle-left" onclick="toggleF()"></i>
+            </a>
+        </div>
+
+    </div>
+    <div class="flexArea" id="flexArea">
+        <div class="navbar">
+            <div class="openbtnhide"><a href="javascipt:void(0)"></a><i class="fa fa-bars fa-lg "
+                    onclick="toggleF()"></i>
+                </a></div>
+            <div>
+
+            </div>
+
+            <ul id="usernav">
+
+                <li><i class="fa fa-bell fa-lg"></i></li>
+                <li><i class="fa fa-comment-o fa-lg"></i></li>
+
+                <li><i class="fa fa-user fa-lg"></i> Hayden Cordeiro</li>
+            </ul>
+
+
+        </div>
+
+
+
+        <div class="content-area">
+            <div class="flexContainer" id="dashboardLineContainer">
+                <div class="flex-40 dashboardLine">
+                    <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
+                    <div style="margin-bottom: 0;margin-top: 0;">
+                        <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Admin Dashboard</small> </h3>
+                        <p style="margin-bottom: 0;margin-top: 0;"><small>Add Teacher Data</small> </p>
+                    </div>
+
+                </div>
+                <div class="flex-40-end">
+                    <ul class="breadcrumb" style="float: right;">
+                        <li><a href="#"><i class="fa fa-home"></i></a></li>
+                        <li><small>Admin</small></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin: 1% 2.5% 1% 2.5%;">Add Teacher</h2>
+
+        <div class="cardRow2 tablecard">
+            <form action="">
+                <h4>Personal Info</h4>
+                
+                <table id="addTeacherTable" >
+                    <tr>
+                        <td style="width: 20%;"><label class="formLabel">First Name</label></td>
+                        <td style="width: 60%;"><input type="text" name="teacherFirstName" id="teacherFirstName" class="formInput"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;"><label class="formLabel">Last Name</label></td>
+                        <td style="width: 60%;"><input type="text" name="teacherLastName" id="teacherLastName" class="formInput"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="formLabel">ID</label></td>
+                        <td><input type="text" name="teacherID" id="teacherID" class="formInput"></td>
+                    </tr>
+                    <tr>
+                        <td> <label class="formLabel">Email</label></td>
+                        <td><input type="text" name="teacherEmail" id="teacherEmail" class="formInput"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="formLabel">Phone Number</label></td>
+                        <td><input type="text" name="teacherPhone" id="teacherPhone" class="formInput"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="formLabel">Date of Birth</label></td>
+                        <td><input type="date" name="teacherDOB" id="teacherDOB" class="formInput"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="formLabel">Department</label></td>
+                        <td><input type="text" name="teacherDept" id="teacherDept" class="formInput"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                </table>
+                <input type="reset" class="dropbtn2" value="Reset" style="background-color: #fff;border: 1px solid rgba(0, 0, 0, 0.225);color: #333;">
+                <input type="submit" class="dropbtn2" value="Submit">
+
+            </form>
+        </div>
+        <!-- </div> -->
+        <br><br>
+
+        <!-- Footer -->
+        <div class="navbar" style="display: flex;justify-content: center;align-items: center; color: #A9A9A9;">
+            <h4>Copyrights @ CourseMetrics 2020</h4>
+        </div>
+
+    </div>
+
+
+
+    </div>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

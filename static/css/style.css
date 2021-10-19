@@ -1,0 +1,981 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #f2f7fb;
+    margin: 0;
+    height: 100%;
+    font-family: "Quicksand", sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.flexArea {
+    height: 100%;
+    overflow-x: hidden;
+    transition: margin-left 0.5s;
+    margin-left: 250px;
+}
+
+button {
+    outline: none;
+}
+#sidenav {
+    width: 250px;
+}
+.sidenav {
+    background-color: #263544;
+    color: #a7b1be;
+    height: 100%;
+    width: 250px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    font-size: 1rem;
+}
+
+.sidenav .logo {
+    color: #f6f7f8;
+    text-align: center;
+    padding: 15%;
+}
+.sidenav button {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    text-align: left;
+    background-color: #263544;
+    color: #a7b1be;
+    outline: none;
+    font-family: "Quicksand", sans-serif;
+    cursor: pointer;
+}
+.sidenav a {
+    text-decoration: none;
+
+    display: block;
+    transition: 0.4s;
+    font-family: "Quicksand", sans-serif;
+}
+.sidenav h5 {
+    color: #e9eaeb;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.sidenav button {
+    font-size: 1.1rem;
+}
+
+.sidenav-active-set {
+    background-color: #151d29 !important;
+    border-left: 2px #f0f3f8 solid;
+    color: #ffff;
+}
+.sidenav-active-link {
+    border-left: 0.3rem solid #42a5f5 !important;
+    /* color: #eee !important; */
+    background-color: #1d2531 !important;
+}
+
+.sidenav button:hover {
+    color: #f1f1f1;
+    background-color: #151d29;
+}
+
+.sidenav i {
+    font-size: 1.1rem;
+    padding: 0 0.8rem;
+}
+
+.dropdown-container {
+    display: none;
+    transition: 0.4s;
+    background-color: #162534 !important;
+}
+.dropdown-container button {
+    background-color: #162534 !important;
+}
+.dropdown-container button:hover {
+    background-color: #151d29 !important;
+    transition: 0.4s;
+}
+
+.dropdown-container a {
+    margin-left: 15px;
+}
+
+.dropdown-btn {
+    transition: 0.4s;
+}
+
+.navbar {
+    background-color: #fff;
+    height: 65px;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 1rem;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+.navbar li {
+    padding-left: 1rem;
+    text-align: center;
+}
+.closebtn {
+    float: right;
+    padding-right: 15px;
+    padding-top: 10px;
+    color: white;
+}
+.openbtn {
+    display: block;
+    color: #333;
+    cursor: pointer;
+}
+.openbtnhide {
+    display: none;
+}
+
+.closebtn {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: Red; */
+    text-align: center;
+}
+
+.closebtn i {
+    background-color: #ddd;
+    padding: 1rem 1.2rem;
+    border-radius: 50%;
+    color: #1d2531;
+}
+
+.flexContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+#dashboardLineContainer {
+    justify-content: flex-start;
+    margin-left: 2%;
+}
+.verticalFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-width: 20%;
+    max-width: 30%;
+}
+.verticalFlexItem {
+    min-height: 30%;
+    flex: 0 0 1;
+}
+.verticalFlexItem2 {
+    flex: 0 0 48% !important;
+}
+.verticalFlexItem h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 2%;
+}
+.verticalFlexItem h3 {
+    font-size: 1.5rem;
+}
+.verticalFlexItem h5 {
+    font-size: 1rem;
+}
+.verticalFlexItem h6 {
+    font-size: 1rem;
+}
+.flex-card {
+    flex: 0 0 16.8%;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+    margin: 1%;
+    padding-left: 20px;
+    border-radius: 0.25rem;
+    /* text-align: center; */
+}
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: #ffff;
+    border-radius: 0.25rem;
+    padding-left: 20px;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+}
+
+.card4Table {
+    background-color: #fff;
+    grid-template-areas:
+        "header header header"
+        "main main main "
+        "footer footer footer";
+    margin: 1rem;
+    min-height: 120px;
+    width: 22vw;
+    min-width: 500px;
+    border-radius: 0.25rem;
+
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+}
+
+.flex-30 {
+    flex: 0 0 30%;
+    margin: 1%;
+}
+.flex-25 {
+    flex: 0 0 25%;
+    margin: 1%;
+}
+.flex-70 {
+    flex: 0 0 70%;
+    margin: 1%;
+}
+.flex-60 {
+    flex: 0 0 60%;
+    margin: 1%;
+}
+
+.flex-50 {
+    flex: 0 0 50%;
+    margin: 1%;
+}
+.flex-40 {
+    flex: 0 0 40%;
+    margin: 1%;
+}
+#homeIcon {
+    background-color: #449ff5;
+    color: white;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+    border-radius: 0.25rem;
+    margin-right: 2%;
+    padding: 1%;
+}
+
+.dashboardLine {
+    margin: 1%;
+    align-content: center;
+    justify-content: left;
+    justify-self: flex-start;
+}
+
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+}
+ul.breadcrumb li {
+    display: inline;
+    font-size: 1.2vw;
+}
+ul.breadcrumb li + li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+ul.breadcrumb li a {
+    color: black;
+    text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+.flex-30-end {
+    flex: 0 0 65%;
+    justify-content: center;
+    align-content: flex-end;
+}
+.flex-40-end {
+    flex: 0 0 50%;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.tableFees {
+    background-color: #dddd;
+    padding: 2%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.cardRow2 {
+    grid-area: header;
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
+}
+
+.cardRow2.tablecard {
+    background-color: #ffff;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+    padding: 0.5rem;
+
+    border-radius: 0.25rem;
+    /* overflow: hidden; */
+
+    grid-area: header;
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardRow1 {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
+}
+.cardRow1.chart {
+    background-color: #ffff;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+    padding: 0.5rem;
+
+    border-radius: 0.25rem;
+    overflow: hidden;
+
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cardRow1.tablecard {
+    background-color: #ffff;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+    padding: 0.5rem;
+
+    border-radius: 0.25rem;
+    /* overflow: hidden; */
+
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardRow2 {
+    grid-area: main;
+    padding-left: 3%;
+}
+
+.cardRow3 {
+    grid-area: footer;
+    background-color: #eeee;
+    display: flex;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.card-grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "main main main "
+        "footer footer footer";
+    grid-gap: 10px;
+    min-width: 200px;
+}
+
+.profileLetter {
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.subname {
+    grid-area: header;
+    padding-left: 3%;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.attendance-graph {
+    min-width: 200px;
+}
+
+.singleAttendanceCard {
+    display: flex;
+    /* background-color: red; */
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 4rem;
+    flex: 1 1 auto;
+}
+
+.card4TableflexContainer {
+    margin: 1rem;
+    padding: 1rem 0rem;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+
+    border: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.cardforAttprog {
+    min-width: 48%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.cardforAttprog:nth-child(odd) .singleAttendanceCard {
+    padding-right: 1rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+.cardforAttprog:nth-child(even) .singleAttendanceCard {
+    padding-left: 1rem;
+    /* border-right: 1px solid rgba(0, 0, 0, 0.3); */
+}
+.singleAttendanceCardrow1 {
+    min-width: 100%;
+    margin: 0px;
+    min-height: rem;
+    margin: 0rem 1rem;
+    /* background-color: khaki; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.singleAttendanceCard h4 {
+    font-size: large;
+}
+.cardforAttProgress {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.progressDiv {
+    margin: 0.8rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.progress {
+    width: 96%;
+    height: 10px;
+    /* margin-top: 0.5rem; */
+    border: 1px;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
+
+.chartStyle {
+    min-width: 100%;
+    min-height: 40vh;
+    transform: translateY(-10%);
+}
+#lastChart {
+    order: 3;
+}
+.chartCard {
+    min-width: 20%;
+    max-width: 30%;
+    padding: 0px;
+}
+.AttendanceTableContainer {
+    overflow-x: auto;
+    margin: 1rem;
+    padding: 1rem 1rem;
+    background-color: #fff;
+
+    border-radius: 0.25rem;
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+
+    border: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-device-width: 480px) {
+    /* STYLES HERE for DEVICES with physical max-screen width of 480px */
+    .columnatt {
+        min-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .verticalFlex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        min-width: 100%;
+        /* max-width: 30%; */
+    }
+    .chartCard {
+        max-width: 100%;
+        padding: 0px;
+    }
+    #lastChart {
+        order: 0;
+    }
+    .progressDiv {
+        margin: 0.5rem;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cardforAttprog:nth-child(odd) .singleAttendanceCard {
+        /* padding-right: 0; */
+        border-right: none;
+    }
+    .cardforAttprog:nth-child(even) .singleAttendanceCard {
+        /* border-right: 1px solid rgba(0, 0, 0, 0.3); */
+    }
+    .singleAttendanceCard {
+        overflow: hidden;
+
+        padding: 0rem 1rem;
+        display: flex;
+        margin: 0rem 0.5rem;
+        /* background-color: red; */
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 4rem;
+        min-width: 80vw;
+        max-width: 80vw;
+    }
+
+    .singleAttendanceCard h4 {
+        font-size: 1.1em;
+    }
+    .columnatt {
+        min-width: 100%;
+    }
+    .usernavhide {
+        display: none !important;
+    }
+    .openbtn {
+        display: none;
+    }
+    .openbtnhide {
+        display: block;
+        color: #333;
+    }
+    #flexArea {
+        margin-left: 0;
+    }
+    #mySidenav {
+        width: 0;
+    }
+    .cardRow1.chart {
+        width: 90%;
+        background-color: #ffff;
+        box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+        padding: 0.5rem;
+        margin: 1rem;
+        border-radius: 0.25rem;
+        overflow: hidden;
+        grid-area: header;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    canvas {
+        min-width: 100%;
+        height: 100%;
+    }
+    .content-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .flexContainer {
+        width: 95%;
+        flex-direction: column;
+    }
+    ul.breadcrumb {
+        padding: 1rem 1rem;
+        list-style: none;
+    }
+    ul.breadcrumb li {
+        font-size: 1rem;
+    }
+
+    .card-grid-container {
+        display: grid;
+        grid-template-areas:
+            "header header header"
+            "main main main "
+            "footer footer footer";
+        margin: 0.5rem 0rem 0.5rem 0rem;
+        min-width: 100%;
+    }
+
+    .card4Table {
+        min-width: 0px;
+        width: 100%;
+        margin: 0.5rem;
+    }
+}
+
+.attendanceTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+    min-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#attendanceTable th,
+td {
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+#attendanceTable tr:hover {
+    background-color: #f2f7fb;
+}
+
+.firstColAttTable {
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+.firstRowAttTable {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#attendanceTable2 {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 94%;
+    margin: auto;
+    background-color: #eee;
+    text-align: center;
+    font-weight: 900;
+}
+
+#attendanceTable2 th,
+td {
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+#attendanceTable2 tr:hover {
+    background-color: #f2f7fb;
+}
+
+.attendance_form_table {
+    border-top: 1px solid #dee2e6;
+    margin: 2%;
+    width: 97%;
+    border-collapse: collapse;
+}
+
+.attendance_form_table th,
+td {
+    border-bottom: 1px solid #dee2e6;
+    padding: 1% 0;
+}
+
+.attendance_form_table tr:hover {
+    background-color: rgba(64, 153, 255, 0.1);
+}
+
+.dropbtn {
+    background-color: #4099ff;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    min-width: 160px;
+}
+.dropinput {
+    font-family: "Quicksand", sans-serif;
+    /* background-color: #4099ff; */
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    min-width: 160px;
+    border: 1px solid #ddd;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    z-index: 1;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #73b4ff;
+}
+
+.table_search {
+    display: flex;
+    justify-content: left;
+    vertical-align: middle;
+    align-content: flex-start;
+    /* margin: 2%; */
+    /* margin-left: 3%; */
+    /* margin-right: 3%; */
+    /* width: 94%; */
+    flex-wrap: wrap;
+}
+
+.table_search > div {
+    margin: 1% 1%;
+}
+
+#search_box {
+    width: 100%;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 16px;
+    /* padding: 12px 15px 12px 15px; */
+    border: 1px solid #ddd;
+    /* margin-bottom: 12px; */
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    border-radius: 5px;
+}
+
+#attendance_form_table_data tr > td > input:focus {
+    box-shadow: 0 0 0.15em 0.1em #4099ff;
+}
+
+#attendance_form_table_data tr > td > input {
+    zoom: 1.5;
+}
+
+.columnatt {
+    float: left;
+    width: 50%;
+}
+.rowatt:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.cardforAtt {
+    background-color: #fff;
+    grid-template-areas:
+        "header header header"
+        "main main main "
+        "footer footer footer";
+    margin: 1rem;
+    min-height: 120px;
+    width: 100%;
+    min-width: 500px;
+    border-radius: 0.25rem;
+
+    box-shadow: 0px 7px 9px 1px rgba(224, 228, 231, 1);
+}
+
+.btn-success {
+    background-color: #2ed8b6 !important;
+    border-color: #2ed8b6 !important;
+}
+
+.btn-success:hover {
+    background-color: #59e0c5 !important;
+    border-color: #59e0c5 !important;
+}
+.btn-danger {
+    background-color: #ff5370 !important;
+    border-color: #ff5370 !important;
+}
+
+.btn-danger:hover {
+    background-color: #ff869a !important;
+    border-color: #ff869a !important;
+}
+
+.table_inside_row {
+    display: flex;
+    vertical-align: middle;
+}
+
+.table_inside_row > div {
+    margin: 1%;
+}
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+
+/* custom select */
+
+.custom-select select {
+    display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+    background-color: #4099ff;
+    border-radius: 5px;
+    min-height: 29px;
+    min-width: 140px;
+    padding: 16x;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 26px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 18px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+.select-selected {
+    padding-top: 1rem;
+}
+
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: #8bb8ec;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.formInput {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 16px;
+    /* padding: 12px 15px 12px 15px; */
+    border: 1px solid #ddd;
+    /* margin-bottom: 12px; */
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.formLabel {
+    padding: 0 5%;
+}
+
+#addTeacherTable {
+    width: 90%;
+    margin-left: 2%;
+}
+
+#addTeacherTable th,
+td {
+    text-align: left;
+    /* border-bottom: 1px solid #dee2e6; */
+    padding: 1% 0;
+    border: none;
+}
+.dropbtn2 {
+    background-color: #4099ff;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    min-width: 160px;
+    width: 40%;
+    margin: 0 4%;
+}
