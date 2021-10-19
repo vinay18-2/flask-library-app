@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CourseMetrics</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link
@@ -18,7 +18,7 @@
 
 <body>
     <div id="mySidenav" class="sidenav">
-        <h3 class="logo">CourseMatrics</h3>
+        <h3 class="logo">Library</h3>
         <h5>Navigation</h5>
         <!-- <button class="dropdown-btn sidenav-active-link"><span><i class="fa fa-tachometer"></i> Dashboard</span><span><i
                     class="fa fa-angle-down fa-lg" style="float: right;"></i></span> </button>
@@ -88,7 +88,7 @@
                 <li><i class="fa fa-bell fa-lg"></i></li>
                 <li><i class="fa fa-comment-o fa-lg"></i></li>
 
-                <li><i class="fa fa-user fa-lg"></i> Hayden Cordeiro</li>
+                <li><i class="fa fa-user fa-lg"></i>Admin</li>
 
 
 
@@ -119,32 +119,32 @@
 
             <div class="flexContainer">
                 <div class="flex-50 chartCard card" style="flex: 0 0 30%;">
-                    <h4><strong>Deals Analytics</strong></h4>
+                    <h4><strong>Most Popular Books</strong></h4>
                     <div style="width: 95%;">
                         <img src="chart.jpg" style="width:100%;">
                     </div>
                 </div>
                 <div class="flex-50 chartCard card" style="flex: 0 0 30%;">
-                    <h4><strong>Sales Analytics</strong></h4>
+                    <h4><strong>Highest Paying Customers</strong></h4>
                     <div style="width: 95%;">
                         <img src="chart.jpg" style="width:100%;">
                     </div>
                 </div>
                 <div class="flex-40 verticalFlex" style="flex: 0 0 30%;">
                     <div class="card verticalFlexItem" style="margin-bottom: 1.5%;">
-                        <h6>Impressions</h6>
+                        <h6>Total Customers</h6>
                         <h3 style="color: #4098FE;">1250</h3>
-                        <h5>May 2020 - June 2021</h5>
+                        <!-- <h5>May 2020 - June 2021</h5> -->
                     </div>
                     <div class="card verticalFlexItem" style="margin-bottom: 1%; margin-top:1%;">
-                        <h6>Sales</h6>
+                        <h6>Total Books in Stock</h6>
                         <h3 style="color: #FF5370;">1250</h3>
-                        <h5>May 2020 - June 2021</h5>
+                        <!-- <h5>May 2020 - June 2021</h5> -->
                     </div>
                     <div class="card verticalFlexItem" style="margin-top: 1.5%;">
                         <h6>Visitors</h6>
                         <h3 style="color: #FFB64D;">1250</h3>
-                        <h5>May 2020 - June 2021</h5>
+                        <!-- <h5>May 2020 - June 2021</h5> -->
                     </div>
 
                 </div>
@@ -156,7 +156,7 @@
             <h4>Copyrights @ CourseMetrics 2020</h4>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
 </body>
 
 </html>

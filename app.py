@@ -3,23 +3,25 @@ from flask import Flask, render_template,request,redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.db'
 db = SQLAlchemy(app)
 
-class BlogPost(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    author = db.Column(db.String(25), nullable=False, default='N/A')
-    content = db.Column(db.Text, nullable=False)
-    date_posted = db.Column(db.DateTime, nullable=False,
-                            default=datetime.utcnow)
+
+class Books(db.Model):
+    bookID = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    authors = db.Column(db.String(255), nullable=False)
+    stockQty = db.Column(db.Integer, nullable=False, default=0)
+    timesIssued = db.Column(db.Integer, nullable=False, default=0)
 
     def __repr__(self):
-        return 'Blog Post'+str(self.id)
+        return 'Book'+str(self.id)
 
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 
@@ -47,7 +49,6 @@ def delete(id):
     return redirect('/posts')
 
 
-
 @app.route('/posts/edit/<int:id>',methods=['POST','GET'])
 def edit(id):
     if request.method=='POST':
@@ -63,7 +64,6 @@ def edit(id):
         return render_template('edit.html',post=post)
 
 
-
 @app.route('/posts/new',methods=['GET','POST'])
 def new_post():
     if request.method=='POST':
@@ -75,7 +75,6 @@ def new_post():
         return redirect('/posts')
     else:
         return render_template('newPost.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
