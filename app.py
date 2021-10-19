@@ -6,8 +6,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.db'
 db = SQLAlchemy(app)
 
-
-
 class Books(db.Model):
     __tablename__ = 'books'
     book_id = db.Column(db.Integer, primary_key=True)
@@ -15,7 +13,8 @@ class Books(db.Model):
     authors = db.Column(db.String(255), nullable=False)
     stockQty = db.Column(db.Integer, nullable=False, default=0)
     timesIssued = db.Column(db.Integer, nullable=False, default=0)
-    transactions = db.relationship('Transaction', backref=db.backref('books', lazy='joined'))
+    
+    
 
     def __repr__(self):
         return 'Book'+str(self.book_id)
@@ -27,36 +26,45 @@ class Customer(db.Model):
     name=db.Column(db.String(255), nullable=False)
     debt = db.Column(db.Integer, nullable=False, default=0)
     total_trans = db.Column(db.Integer, nullable=False, default=0)
-    transactions = db.relationship('Transaction', backref=db.backref('customer', lazy='joined'))
+   
+   
 
     def __repr__(self):
         return 'Customer '+str(self.cust_id)
 
-customers_trans = db.Table('customers_trans',
-    db.Column('book_id', db.Integer, db.ForeignKey('customer.cust_id'), primary_key=True),
-    db.Column('cust_id', db.Integer, db.ForeignKey('books.book_id'), primary_key=True)
+
+transactions = db.Table('transactions',
+    db.Column('trans_id', db.Integer, primary_key=True, autoincrement=True),
+    db.Column('book_id', db.Integer, db.ForeignKey('customer.cust_id')),
+    db.Column('cust_id', db.Integer, db.ForeignKey('books.book_id')),
+    db.Column('cost', db.Integer)
 )
 
 
-class Transaction(db.Model):
-    __tablename__ = 'transaction'
-    trans_id = db.Column(db.Integer, primary_key=True,autoincrement = True)
-    transactions = db.relationship('Tag', secondary=transactions, lazy='subquery', backref=db.backref('pages', lazy=True))
-    custtest_id = db.Column(db.Integer, db.ForeignKey('customer.cust_id'), nullable = False)
-    book_id = db.Column(db.Integer, db.ForeignKey('books.book_id'), nullable = False)
-    cost = db.Column(db.Integer, nullable=False, default=0)
+# class Transaction(db.Model):
+#     __tablename__ = 'transaction'
+#     trans_id = db.Column(db.Integer, primary_key=True,autoincrement = True)
+#     cust_id = db.Column(db.Integer, db.ForeignKey('customer.cust_id'))
+#     book_id = db.Column(db.Integer, db.ForeignKey('books.book_id'))
+#     cost = db.Column(db.Integer, nullable=False, default=0)
+   
 
-    def __repr__(self):
-        return 'Trans '+str(self.trans_id)
+#     def __repr__(self):
+#         return 'Trans '+str(self.trans_id)
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 
 @app.route('/')
 def index():
     print(Customer.query.get(1),Books.query.get(1))
-    t=Transaction(customer=Customer.query.get(1),books=Books.query.get(1),cost=10)
-    db.session.add(t)
+    t = transactions.insert().values(cust_id=1,book_id=1,cost=10)
+    db.engine.execute(t)
+    
     db.session.commit()
-    print(Transaction.query.all())
+    print(db.session.query(transactions).all())
     most_popular=Books.query.order_by(Books.timesIssued).limit(5).all()
     return render_template('index.html',most_popular=most_popular)
 
