@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+</title>Customers</title>
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="content-area">
+    <div class="flexContainer" id="dashboardLineContainer">
+        <div class="flex-40 dashboardLine">
+            <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
+            <div style="margin-bottom: 0;margin-top: 0;">
+                <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Customers Dashboard</small> </h3>
+                <p style="margin-bottom: 0;margin-top: 0;"><small>Customer Details</small> </p>
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+
+<h2 style="margin: 1% 2.5% 1% 2.5%;">Manage Customers</h2>
+
+<!-- <div style=""> -->
+
+<div class="cardRow2 tablecard">
+    <div style="display: flex;flex-wrap: wrap;" class="table_inside_row">
+        <div style="flex:0 0 60%;flex-grow: 3;">
+            <input type="text" id="search_box" placeholder="Search .." style="margin: 1%;width: 95%;">
+        </div>
+        
+    </div>
+    <table class="attendance_form_table">
+        <thead>
+            <tr style="text-align: left;">
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Debit</th>
+                <th>Total Transactions</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="attendance_form_table_data">
+            {%for customer in all_customers %}
+            <tr>
+                <!-- <td><input type="checkbox" name="" id=""></td> -->
+                <td>{{customer.cust_id}}</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.debt}}</td>
+                <td>{{customer.total_trans}}</td>
+                <td><a href="customers/delete/{{customer.cust_id}}"><button class="dropbtn btn-danger">Delete</button></a></td>
+
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $("#search_box").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#attendance_form_table_data tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+{% endblock %}

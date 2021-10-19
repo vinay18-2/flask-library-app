@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}
+</title>Books</title>
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="content-area">
+    <div class="flexContainer" id="dashboardLineContainer">
+        <div class="flex-40 dashboardLine">
+            <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
+            <div style="margin-bottom: 0;margin-top: 0;">
+                <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Books Dashboard</small> </h3>
+                <p style="margin-bottom: 0;margin-top: 0;"><small>Library Stock</small> </p>
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+
+<h2 style="margin: 1% 2.5% 1% 2.5%;">Manage Books</h2>
+
+<!-- <div style=""> -->
+
+<div class="cardRow2 tablecard">
+    <div style="display: flex;flex-wrap: wrap;" class="table_inside_row">
+        <div style="flex:0 0 60%;flex-grow: 3;">
+            <input type="text" id="search_box" placeholder="Search .." style="margin: 1%;width: 95%;">
+        </div>
+        
+    </div>
+    <table class="attendance_form_table">
+        <thead>
+            <tr style="text-align: left;">
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Stock</th>
+                <th>Times Issued</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="attendance_form_table_data">
+            {%for book in all_books %}
+            <tr>
+                <!-- <td><input type="checkbox" name="" id=""></td> -->
+                <td>{{book.book_id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.authors}}</td>
+                <td>{{book.stockQty}}</td>
+                <td>{{book.timesIssued}}</td>
+                <td><a href="books/delete/{{book.book_id}}"><button class="dropbtn btn-danger">Delete</button></a></td>
+
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $("#search_box").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#attendance_form_table_data tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+{% endblock %}

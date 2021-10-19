@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}
+</title>Add Books</title>
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="content-area">
+    <div class="flexContainer" id="dashboardLineContainer">
+        <div class="flex-40 dashboardLine">
+            <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
+            <div style="margin-bottom: 0;margin-top: 0;">
+                <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Add Books</small> </h3>
+                <p style="margin-bottom: 0;margin-top: 0;"><small>Book Inventory</small> </p>
+            </div>
+
+        </div>
+       
+    </div>
+</div>
+
+<h2 style="margin: 1% 2.5% 1% 2.5%;">Add Books</h2>
+
+<div class="cardRow2 tablecard">
+    <form method="POST">
+        <h4>Enter Book Details</h4>
+
+        <table id="addTeacherTable">
+            <tr>
+                <td style="width: 20%;"><label class="formLabel">Book ID</label></td>
+                <td style="width: 60%;"><input type="text" name="book_id" id="book_id"
+                        class="formInput"></td>
+            </tr>
+            <tr>
+                <td style="width: 20%;"><label class="formLabel">Title</label></td>
+                <td style="width: 60%;"><input type="text" name="title" id="title"
+                        class="formInput"></td>
+            </tr>
+            <tr>
+                <td><label class="formLabel">Author</label></td>
+                <td><input type="text" name="author" id="author" class="formInput"></td>
+            </tr>
+            <tr>
+                <td> <label class="formLabel">Stock Quantity</label></td>
+                <td><input type="text" name="stockQty" id="stockQty" class="formInput"></td>
+            </tr>
+
+                <td colspan="2"></td>
+            </tr>
+        </table>
+        <input type="reset" class="dropbtn2" value="Reset"
+            style="background-color: #fff;border: 1px solid rgba(0, 0, 0, 0.225);color: #333;">
+        <input type="submit" class="dropbtn2" value="Submit">
+
+    </form>
+</div>
+
+{% endblock %}

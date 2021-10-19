@@ -1,162 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %}
+</title>Library</title>
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CourseMetrics</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+{% block body %}
 
-</head>
 
-<body>
-    <div id="mySidenav" class="sidenav">
-        <h3 class="logo">Library</h3>
-        <h5>Navigation</h5>
-        <!-- <button class="dropdown-btn sidenav-active-link"><span><i class="fa fa-tachometer"></i> Dashboard</span><span><i
-                    class="fa fa-angle-down fa-lg" style="float: right;"></i></span> </button>
-        <div class="dropdown-container sidenav-active-set">
-            <a href=""><button><i class="fa fa-angle-right"></i> Default</button></a>
-            <a href=""><button><i class="fa fa-angle-right"></i> CRM</button></a>
-            <a href=""><button><i class="fa fa-angle-right"></i> Analytics</button></a>
-        </div> -->
-        <a href="#"><button class="sidenav-active-link"><i class="fa fa-tachometer"></i>Home</button></a>
-        <h5>Student</h5>
-        <a href="student.html"><button class=""><i class="fa fa-file"></i> Student Dashboard</button></a>
-        <a href="student_attendance.html"><button class=""><i class="fa fa-book"></i> Attendance</button></a>
-        <h5>Teacher</h5>
-        <a href="teachers_marks.html"><button class=""><i class=" fa fa-line-chart"></i>
-            Marks Analysis</button></a>
-    <!--
-    <button class=""><i class="fa fa-rocket"></i> Widget</button>
-    <h5>UI Widgets</h5>
-    <button class="dropdown-btn"><i class="fa fa-cube"></i>Basic<i class="fa fa-angle-down fa-lg"
-            style="float: right;"></i></button>
-    <div class="dropdown-container">
-        <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
-    </div>
-    <button class="dropdown-btn"><i class="fa fa-paint-brush"></i>Advanced<i class="fa fa-angle-down fa-lg"
-            style="float: right;"></i></button>
-    <div class="dropdown-container">
-        <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
-    </div>
-    <button class="dropdown-btn"><i class="fa fa-puzzle-piece"></i>Extra<i class="fa fa-angle-down fa-lg"
-            style="float: right;"></i></button>
-    <div class="dropdown-container">
-        <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
-    </div>
-    <button class="dropdown-btn"><i class="fa fa-video-camera"></i>Animations<i class="fa fa-angle-down fa-lg"
-            style="float: right;"></i></button>
-    <div class="dropdown-container">
-        <a href=""><button><i class="fa fa-angle-right"></i>Square</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Rectangle</button></a>
-        <a href=""><button><i class="fa fa-angle-right"></i>Circle</button></a>
-
-    </div>-->
-        <div>
-
-            <a href="javascipt:void(0)" class="closebtn">
-                <i class="fa fa-angle-left" onclick="toggleF()"></i>
-            </a>
-        </div>
-
-    </div>
-    <div class="flexArea" id="flexArea">
-        <div class="navbar">
-            <div class="openbtnhide"><a href="javascipt:void(0)"></a><i class="fa fa-bars fa-lg "
-                    onclick="toggleF()"></i>
-                </a></div>
-            <div>
-
+<div class="content-area">
+    <div class="flexContainer" id="dashboardLineContainer">
+        <div class="flex-40 dashboardLine">
+            <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
+            <div style="margin-bottom: 0;margin-top: 0;">
+                <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Dashboard</small> </h3>
+                <p style="margin-bottom: 0;margin-top: 0;"><small>Lorem, ipsum dolor sit.</small> </p>
             </div>
 
-            <ul id="usernav">
-
-                <li><i class="fa fa-bell fa-lg"></i></li>
-                <li><i class="fa fa-comment-o fa-lg"></i></li>
-
-                <li><i class="fa fa-user fa-lg"></i>Admin</li>
-
-
-
-
-
+        </div>
+        <div class="flex-40-end">
+            <ul class="breadcrumb" style="float: right;">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><small>Dashboard</small></li>
             </ul>
-
-
         </div>
-
-        <div class="content-area">
-            <div class="flexContainer" id="dashboardLineContainer">
-                <div class="flex-40 dashboardLine">
-                    <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
-                    <div style="margin-bottom: 0;margin-top: 0;">
-                        <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Dashboard</small> </h3>
-                        <p style="margin-bottom: 0;margin-top: 0;"><small>Lorem, ipsum dolor sit.</small> </p>
-                    </div>
-
-                </div>
-                <div class="flex-40-end">
-                    <ul class="breadcrumb" style="float: right;">
-                        <li><a href="#"><i class="fa fa-home"></i></a></li>
-                        <li><small>Dashboard</small></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="flexContainer">
-                <div class="flex-50 chartCard card" style="flex: 0 0 30%;">
-                    <h4><strong>Most Popular Books</strong></h4>
-                    <div style="width: 95%;">
-                        <img src="chart.jpg" style="width:100%;">
-                    </div>
-                </div>
-                <div class="flex-50 chartCard card" style="flex: 0 0 30%;">
-                    <h4><strong>Highest Paying Customers</strong></h4>
-                    <div style="width: 95%;">
-                        <img src="chart.jpg" style="width:100%;">
-                    </div>
-                </div>
-                <div class="flex-40 verticalFlex" style="flex: 0 0 30%;">
-                    <div class="card verticalFlexItem" style="margin-bottom: 1.5%;">
-                        <h6>Total Customers</h6>
-                        <h3 style="color: #4098FE;">1250</h3>
-                        <!-- <h5>May 2020 - June 2021</h5> -->
-                    </div>
-                    <div class="card verticalFlexItem" style="margin-bottom: 1%; margin-top:1%;">
-                        <h6>Total Books in Stock</h6>
-                        <h3 style="color: #FF5370;">1250</h3>
-                        <!-- <h5>May 2020 - June 2021</h5> -->
-                    </div>
-                    <div class="card verticalFlexItem" style="margin-top: 1.5%;">
-                        <h6>Visitors</h6>
-                        <h3 style="color: #FFB64D;">1250</h3>
-                        <!-- <h5>May 2020 - June 2021</h5> -->
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        <!-- Footer -->
-        <!-- <div class="navbar" style="display: flex;justify-content: center;align-items: center; color: #A9A9A9;">
-            <h4>Copyrights @ CourseMetrics 2020</h4>
-        </div> -->
     </div>
-    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
-</body>
 
-</html>
+    <div class="flexContainer">
+        <div class="flex-50 chartCard card" style="flex: 0 0 30%;">
+            <h4><strong>Most Popular Books</strong></h4>
+            <div style="width: 80%;margin: auto;">
+                <table class="attendance_form_table">
+                    <!-- <thead>
+                        <tr style="text-align: left;">
+                            <th>Title</th>
+                            <th>Times Issued</th>
+                        </tr>
+                    </thead> -->
+                    <tbody id="attendance_form_table_data">
+                        {%for book in most_popular %}
+                        <tr>
+                            <!-- <td><input type="checkbox" name="" id=""></td> -->
+                            <td>{{book.title}}</td>
+                            <td>{{book.timesIssued}}</td>
+                        </tr>
+                        {%endfor%}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="flex-50 chartCard card" style="flex: 0 0 30%;">
+            <h4><strong>Highest Paying Customers</strong></h4>
+            <div style="width: 80%;margin: auto;">
+                <table class="attendance_form_table">
+                    <!-- <thead>
+                        <tr style="text-align: left;">
+                            <th>Title</th>
+                            <th>Times Issued</th>
+                        </tr>
+                    </thead> -->
+                    <tbody id="attendance_form_table_data">
+                        {%for book in most_popular %}
+                        <tr>
+                            <!-- <td><input type="checkbox" name="" id=""></td> -->
+                            <td>{{book.title}}</td>
+                            <td>{{book.timesIssued}}</td>
+                        </tr>
+                        {%endfor%}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="flex-40 verticalFlex" style="flex: 0 0 30%;">
+            <div class="card verticalFlexItem" style="margin-bottom: 1.5%;">
+                <h6>Total Customers</h6>
+                <h3 style="color: #4098FE;">1250</h3>
+                <!-- <h5>May 2020 - June 2021</h5> -->
+            </div>
+            <div class="card verticalFlexItem" style="margin-bottom: 1%; margin-top:1%;">
+                <h6>Total Books in Stock</h6>
+                <h3 style="color: #FF5370;">1250</h3>
+                <!-- <h5>May 2020 - June 2021</h5> -->
+            </div>
+            <div class="card verticalFlexItem" style="margin-top: 1.5%;">
+                <h6>Visitors</h6>
+                <h3 style="color: #FFB64D;">1250</h3>
+                <!-- <h5>May 2020 - June 2021</h5> -->
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

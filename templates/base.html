@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseMetrics - Teacher</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <h3 class="logo">Library</h3>
+        <h5>Navigation</h5>
+
+        <a href="/"><button class=""><i class="fa fa-tachometer"></i>Home</button></a>
+        <h5>Book Management</h5>
+        <a href="{{ url_for('books') }}"><button class=""><i class="fa fa-book"></i>Books</button></a>
+        <a href="{{ url_for('add_books') }}"><button class=""><i class="fa fa-file"></i>Add Books</button></a>
+        <h5>Customer Management</h5>
+        <a href="{{ url_for('customers') }}"><button class=""><i class="fa fa-book"></i>Customers</button></a>
+        <a href="{{ url_for('add_customer') }}"><button class=""><i class="fa fa-file"></i>Add Customer</button></a>
+
+        <div>
+
+            <a href="javascipt:void(0)" class="closebtn">
+                <i class="fa fa-angle-left" onclick="toggleF()"></i>
+            </a>
+        </div>
+
+    </div>
+    <div class="flexArea" id="flexArea">
+        <div class="navbar">
+            <div class="openbtnhide"><a href="javascipt:void(0)"></a><i class="fa fa-bars fa-lg "
+                    onclick="toggleF()"></i>
+                </a></div>
+            <div>
+
+            </div>
+
+            <ul id="usernav">
+
+                <li><i class="fa fa-bell fa-lg"></i></li>
+                <li><i class="fa fa-comment-o fa-lg"></i></li>
+
+                <li><i class="fa fa-user fa-lg"></i>Librarian</li>
+            </ul>
+
+
+        </div>
+        {% block body %}
+
+        {% endblock %}
+
+    </div>
+
+
+
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
+</body>
+
+</html>
