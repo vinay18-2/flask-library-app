@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-</title>Add Books</title>
+</title>Issue Books</title>
 {% endblock %}
 
 {% block body %}
@@ -12,7 +12,7 @@
         <div class="flex-40 dashboardLine">
             <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
             <div style="margin-bottom: 0;margin-top: 0;">
-                <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Add Books</small> </h3>
+                <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Issue Books</small> </h3>
                 <p style="margin-bottom: 0;margin-top: 0;"><small>Book Inventory</small> </p>
             </div>
 
@@ -21,10 +21,10 @@
     </div>
 </div>
 
-<h2 style="margin: 1% 2.5% 1% 2.5%;">Add Books</h2>
+<h2 style="margin: 1% 2.5% 1% 2.5%;">Issue Books</h2>
 
 <div class="cardRow2 tablecard">
-    <form method="PO">
+    <form method="POST">
         <h4>Enter Book Details</h4>
 
         <table id="addTeacherTable">
@@ -39,12 +39,16 @@
                         class="formInput"></td>
             </tr>
             <tr>
-                <td><label class="formLabel">Author</label></td>
-                <td><input type="text" name="author" id="author" class="formInput"></td>
+                <td><label class="formLabel">Customer ID</label></td>
+                <td><input type="text" name="cust_id" id="cust_id" class="formInput"></td>
             </tr>
             <tr>
-                <td> <label class="formLabel">Stock Quantity</label></td>
-                <td><input type="text" name="stockQty" id="stockQty" class="formInput"></td>
+                <td> <label class="formLabel">Customer Name</label></td>
+                <td><input type="text" name="cust_name" id="cust_name" class="formInput"></td>
+            </tr>
+            <tr>
+                <td> <label class="formLabel">Date of Issue</label></td>
+                <td><input type="date" name="issue_date" id="issue_date" class="formInput"></td>
             </tr>
 
                 <td colspan="2"></td>

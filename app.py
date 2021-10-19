@@ -95,6 +95,36 @@ def delete_book(id):
     db.session.commit()
     return redirect('/books')
 
+@app.route('/issue_book', methods=['GET', 'POST'])
+def issue_book():
+    if request.method=='POST':
+        book_id=int(request.form['book_id'])
+        book_title=request.form['title']
+        book_author=request.form['author']
+        book_stockQty=request.form['stockQty']
+        new_book =Books(book_id=book_id,title=book_title,authors=book_author,stockQty=book_stockQty,timesIssued=0)
+        db.session.add(new_book)
+        db.session.commit()
+        return redirect('/issue_book')
+
+    else:
+        return render_template('issue_book.html')
+
+@app.route('/return_issue', methods=['GET', 'POST'])
+def return_issue():
+    if request.method=='POST':
+        book_id=int(request.form['book_id'])
+        book_title=request.form['title']
+        book_author=request.form['author']
+        book_stockQty=request.form['stockQty']
+        new_book =Books(book_id=book_id,title=book_title,authors=book_author,stockQty=book_stockQty,timesIssued=0)
+        db.session.add(new_book)
+        db.session.commit()
+        return redirect('/return_issue')
+
+    else:
+        return render_template('return_issue.html')
+
 @app.route('/customers')
 def customers():
     all_customers=Customer.query.all()
