@@ -39,6 +39,7 @@
                 <th>Name</th>
                 <th>Debit</th>
                 <th>Total Transactions</th>
+                <th>Pay Dues</th>
                 <th>Edit</th>
                 <th>Action</th>
             </tr>
@@ -55,6 +56,7 @@
 
                 {% endif %}
                 <td>{{customer.total_trans}}</td>
+                <td><a href="/customers/pay/{{customer.cust_id}}">Pay Dues</a></td>
                 <td><a href="/customers/edit/{{customer.cust_id}}">Edit</a></td>
                 <td><a href="customers/delete/{{customer.cust_id}}"><button class="dropbtn btn-danger">Delete</button></a></td>
 

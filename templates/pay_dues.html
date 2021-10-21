@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+</title>Pay Dues</title>
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="content-area">
+    <div class="flexContainer" id="dashboardLineContainer">
+        <div class="flex-40 dashboardLine">
+            <i class="fa fa-home fa-2x" style="float: left;" id="homeIcon"></i>
+            <div style="margin-bottom: 0;margin-top: 0;">
+                <h3 style="margin-bottom: 0;margin-top: 2px;"><small>Pay Dues</small> </h3>
+                <p style="margin-bottom: 0;margin-top: 0;"><small>Customer Management</small> </p>
+            </div>
+
+        </div>
+       
+    </div>
+</div>
+
+<h2 style="margin: 1% 2.5% 1% 2.5%;">Pay Dues</h2>
+
+<div class="cardRow2 tablecard">
+    <form method="POST">
+        <h4>Enter Customer Details</h4>
+
+        <table id="addTeacherTable">
+            <tr>
+                <td style="width: 20%;"><label class="formLabel">Customer ID</label></td>
+                <td style="width: 60%;"><input type="text" name="cust_id" id="cust_id" value="{{cust.cust_id}}" disabled aria-disabled="true"
+                        class="formInput"></td>
+            </tr>
+            <tr>
+                <td style="width: 20%;"><label class="formLabel">Name</label></td>
+                <td style="width: 60%;"><input type="text" name="name" id="name" value="{{cust.name}}" disabled aria-disabled="true"
+                        class="formInput"></td>
+            </tr>
+            <tr>
+                <td style="width: 20%;"><label class="formLabel">To Be Paid</label></td>
+                <td style="width: 60%;"><input type="text" name="debt" id="debt" value="{{cust.debt}}" disabled aria-disabled="true"
+                        class="formInput"></td>
+            </tr>
+            <tr>
+                <td style="width: 20%;"><label class="formLabel">Amount</label></td>
+                <td style="width: 60%;"><input type="text" name="due" id="due"
+                        class="formInput"></td>
+            </tr>
+
+                <td colspan="2"></td>
+            </tr>
+        </table>
+        <input type="reset" class="dropbtn2" value="Reset"
+            style="background-color: #fff;border: 1px solid rgba(0, 0, 0, 0.225);color: #333;">
+        <input type="submit" class="dropbtn2" value="Submit">
+
+    </form>
+</div>
+
+{% endblock %}

@@ -2,6 +2,8 @@
 from flask import Flask, render_template,request,redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import update
+import requests
+import json
 
 from datetime import datetime
 app = Flask(__name__)
@@ -55,12 +57,12 @@ transactions = db.Table('transactions',
 @app.before_first_request
 def create_tables():
     db.create_all()
-    new_book =Books(title="Life of Teenager",authors="Grejo Joby",stockQty=10,timesIssued=0)
-    db.session.add(new_book)
-    db.session.commit()
-    new_customer =Customer(name="Hayden Cordeiro")
-    db.session.add(new_customer)
-    db.session.commit()
+    # new_book =Books(title="Life of Teenager",authors="Grejo Joby",stockQty=10,timesIssued=0)
+    # db.session.add(new_book)
+    # db.session.commit()
+    # new_customer =Customer(name="Hayden Cordeiro")
+    # db.session.add(new_customer)
+    # db.session.commit()
 
 
 @app.route('/')
@@ -207,6 +209,43 @@ def delete_customers(id):
     db.session.delete(customer)
     db.session.commit()
     return redirect('/customers')
+
+@app.route('/customers/pay/<int:id>', methods=['GET', 'POST'])
+def pay_dues(id):
+    cust = Customer.query.filter_by(cust_id=id).first()
+    if request.method=='POST':
+        due=int(request.form['due'])
+        cust.debt -= due
+        db.session.commit()
+        return redirect('/customers')
+    else:
+        return render_template('pay_dues.html',cust=cust)
+
+@app.route('/books_store', methods=['GET', 'POST'])
+def books_store():
+    if request.method=='POST':
+        search=request.form['search_box']
+        if not search=="":
+            r = requests.get('https://frappe.io/api/method/frappe-library?title='+search)
+        # result = request.get_json("https://frappe.io/api/method/frappe-library?title="+search)
+            print(r)
+            return render_template('books_store.html',books=json.loads(r.text)['message'])
+
+    else:
+        return render_template('books_store.html')
+
+@app.route('/books/import/<int:id>', methods=['GET', 'POST'])
+def import_book(id):
+    r = requests.get('https://frappe.io/api/method/frappe-library?isbn='+str(id))
+    book_details = json.loads(r.text)['message'][0]
+    book_title=book_details["title"]
+    book_author=book_details["authors"]
+    book_stockQty=request.form['qty']
+    new_book =Books(title=book_title,authors=book_author,stockQty=book_stockQty,timesIssued=0)
+    db.session.add(new_book)
+    db.session.commit()
+    return redirect('/books')
+
 
 if __name__ == '__main__':
     # try:
