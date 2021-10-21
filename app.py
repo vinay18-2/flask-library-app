@@ -90,6 +90,21 @@ def add_books():
 
     else:
         return render_template('add_books.html')
+
+@app.route('/books/edit/<int:id>', methods=['GET', 'POST'])
+def update_book(id):
+    book = Books.query.filter_by(book_id=id).first()
+    if request.method=='POST':
+        title=request.form['title']
+        authors=request.form['authors']
+        stockQty=request.form['stockQty']
+        book.title = title
+        book.authors = authors
+        book.stockQty = stockQty
+        db.session.commit()
+        return redirect('/books')
+    else:
+        return render_template('edit_book.html',book=book)
     
 @app.route('/books/delete/<int:id>')
 def delete_book(id):
@@ -174,6 +189,17 @@ def add_customer():
 
     else:
         return render_template('add_customer.html')
+    
+@app.route('/customers/edit/<int:id>', methods=['GET', 'POST'])
+def update_customer(id):
+    cust = Customer.query.filter_by(cust_id=id).first()
+    if request.method=='POST':
+        name=request.form['name']
+        cust.name = name
+        db.session.commit()
+        return redirect('/customers')
+    else:
+        return render_template('edit_customer.html',cust=cust)
     
 @app.route('/customers/delete/<int:id>')
 def delete_customers(id):
