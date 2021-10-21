@@ -49,6 +49,10 @@
                 <td>{{customer.cust_id}}</td>
                 <td>{{customer.name}}</td>
                 <td>{{customer.debt}}</td>
+                {% if customer.debt > 500 %}
+                    <script>window.alert(`The debt of customer named "{{customer.name}}" has crossed the limit!`);</script>
+
+                {% endif %}
                 <td>{{customer.total_trans}}</td>
                 <td><a href="customers/delete/{{customer.cust_id}}"><button class="dropbtn btn-danger">Delete</button></a></td>
 
@@ -67,6 +71,10 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+
+
     });
+
+
 </script>
 {% endblock %}
