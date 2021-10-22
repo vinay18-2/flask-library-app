@@ -5,7 +5,6 @@
 
 {% block body %}
 
-
 <div class="content-area">
     <div class="flexContainer" id="dashboardLineContainer">
         <div class="flex-40 dashboardLine">
@@ -29,17 +28,10 @@
             <h4><strong>Most Popular Books</strong></h4>
             <div style="width: 80%;margin: auto;">
                 <table class="attendance_form_table">
-                    <!-- <thead>
-                        <tr style="text-align: left;">
-                            <th>Title</th>
-                            <th>Times Issued</th>
-                        </tr>
-                    </thead> -->
                     <tbody id="attendance_form_table_data">
                         {%for book in most_popular %}
                         {% if book.timesIssued > 0 %}
                         <tr>
-                            <!-- <td><input type="checkbox" name="" id=""></td> -->
                             <td>{{book.title}}</td>
                             <td>{{book.timesIssued}}</td>
                         </tr>
@@ -54,17 +46,10 @@
             <h4><strong>Highest Paying Customers</strong></h4>
             <div style="width: 80%;margin: auto;">
                 <table class="attendance_form_table">
-                    <!-- <thead>
-                        <tr style="text-align: left;">
-                            <th>Title</th>
-                            <th>Times Issued</th>
-                        </tr>
-                    </thead> -->
                     <tbody id="attendance_form_table_data">
                         {%for customer in highest_paying %}
                         {% if customer.total_trans > 0 %}
                         <tr>
-                            <!-- <td><input type="checkbox" name="" id=""></td> -->
                             <td>{{customer.name}}</td>
                             <td>{{customer.total_trans}}</td>
                         </tr>
@@ -79,7 +64,6 @@
             <div class="card verticalFlexItem" style="margin-bottom: 1.5%;">
                 <h6>Total Customers</h6>
                 <h3 style="color: #4098FE;">{{total_customer}}</h3>
-                <!-- <h5>May 2020 - June 2021</h5> -->
             </div>
             <div class="card verticalFlexItem" style="margin-bottom: 1%; margin-top:1%;">
                 <h6>Total Book Titles</h6>
@@ -88,7 +72,6 @@
             <div class="card verticalFlexItem" style="margin-bottom: 1%; margin-top:1%;">
                 <h6>Total Books in Stock</h6>
                 <h3 style="color: #FFB64D;">{{total_books}}</h3>
-                <!-- <h5>May 2020 - June 2021</h5> -->
             </div>
             
 
@@ -99,17 +82,10 @@
             <h4><strong>Customers With Highest Debt</strong></h4>
             <div style="width: 80%;margin: auto;">
                 <table class="attendance_form_table">
-                    <!-- <thead>
-                        <tr style="text-align: left;">
-                            <th>Title</th>
-                            <th>Times Issued</th>
-                        </tr>
-                    </thead> -->
                     <tbody id="attendance_form_table_data">
                         {%for cust in highest_debt %}
                         {% if cust.debt > 0 %}
                         <tr>
-                            <!-- <td><input type="checkbox" name="" id=""></td> -->
                             <td>{{cust.name}}</td>
                             <td>{{cust.debt}}</td>
                         </tr>
@@ -124,17 +100,10 @@
             <h4><strong>Books with Minimum Stock Left</strong></h4>
             <div style="width: 80%;margin: auto;">
                 <table class="attendance_form_table">
-                    <!-- <thead>
-                        <tr style="text-align: left;">
-                            <th>Title</th>
-                            <th>Times Issued</th>
-                        </tr>
-                    </thead> -->
                     <tbody id="attendance_form_table_data">
                         {%for book in least_stock %}
                         {% if book.stockQty > 0 %}
                         <tr>
-                            <!-- <td><input type="checkbox" name="" id=""></td> -->
                             <td>{{book.title}}</td>
                             <td>{{book.stockQty}}</td>
                         </tr>
@@ -149,7 +118,6 @@
             <div class="card verticalFlexItem" style="margin-bottom: 1.5%;">
                 <h6>Total Times Issued</h6>
                 <h3 style="color: #FF5370;">{{total_issues}}</h3>
-                <!-- <h5>May 2020 - June 2021</h5> -->
             </div>
             <div class="card verticalFlexItem" style="margin-bottom: 1%; margin-top:1%;">
                 <h6>Total Transactions Amount</h6>

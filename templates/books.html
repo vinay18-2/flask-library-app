@@ -5,8 +5,6 @@
 
 {% block body %}
 
-
-
 <div class="content-area">
     <div class="flexContainer" id="dashboardLineContainer">
         <div class="flex-40 dashboardLine">
@@ -22,8 +20,6 @@
 </div>
 
 <h2 style="margin: 1% 2.5% 1% 2.5%;">Manage Books</h2>
-
-<!-- <div style=""> -->
 
 <div class="cardRow2 tablecard">
     <div style="display: flex;flex-wrap: wrap;" class="table_inside_row">
@@ -48,7 +44,6 @@
         <tbody id="attendance_form_table_data">
             {%for book in all_books %}
             <tr>
-                <!-- <td><input type="checkbox" name="" id=""></td> -->
                 <td>{{book.book_id}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.authors}}</td>

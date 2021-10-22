@@ -43,18 +43,6 @@ transactions = db.Table('transactions',
     db.Column('issue_date', db.DateTime, default=datetime.now())
 )
 
-
-# class Transaction(db.Model):
-#     __tablename__ = 'transaction'
-#     trans_id = db.Column(db.Integer, primary_key=True,autoincrement = True)
-#     cust_id = db.Column(db.Integer, db.ForeignKey('customer.cust_id'))
-#     book_id = db.Column(db.Integer, db.ForeignKey('books.book_id'))
-#     cost = db.Column(db.Integer, nullable=False, default=0)
-   
-
-#     def __repr__(self):
-#         return 'Trans '+str(self.trans_id)
-
 @app.before_first_request
 def create_tables():
     db.create_all()
@@ -149,9 +137,6 @@ def issue_book(id):
 
 @app.route('/return_issue', methods=['GET', 'POST'])
 def return_issue():
-    # t = transactions.insert().values(cust_id=1,book_id=1,cost=10)
-    # db.engine.execute(t)
-    # db.session.commit()
     issued_books=db.session.query(transactions).all()
     books_issued=[]
     for book in issued_books:
@@ -176,8 +161,7 @@ def return_book(id):
     if request.method=='POST':
         costForm=int(request.form['cost'])
         cust_id = int(request.form['cust_id'])
- 
-        # t = db.session.query(db.exists().where(transactions.trans_id == id)).scalar()
+
         stmt1 = ( update(transactions).where(transactions.c.trans_id == id).values(cost = costForm))
         stmt2 = ( update(transactions).where(transactions.c.trans_id == id).values(status = "closed"))
         db.engine.execute(stmt1)
@@ -185,9 +169,7 @@ def return_book(id):
         cust = Customer.query.filter_by(cust_id=cust_id).first()
         cust.total_trans += costForm
         cust.debt += costForm
-        # transactions.update().where(transactions.c.trans_id == id).values(cost = transactions.c.cost + costForm)
-        # transactions.update().where(transactions.c.trans_id == id).values(status = "closed")
-        # db.engine.execute(t)
+
         db.session.commit()
     return redirect('/return_issue')
 
