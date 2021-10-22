@@ -1,6 +1,7 @@
 
 from flask import Flask, render_template,request,redirect
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 from sqlalchemy import update
 import requests
 import json
@@ -68,8 +69,22 @@ def create_tables():
 @app.route('/')
 def index():
     
-    most_popular=Books.query.order_by(Books.timesIssued).limit(5).all()
-    return render_template('index.html',most_popular=most_popular)
+    most_popular=Books.query.order_by(Books.timesIssued.desc()).limit(5).all()
+    least_stock=Books.query.order_by(Books.stockQty).limit(5).all()
+    highest_paying=Customer.query.order_by(Customer.total_trans.desc()).limit(5).all()
+    highest_debt=Customer.query.order_by(Customer.debt.desc()).limit(5).all()
+    sum = Books.query.with_entities(func.sum(Books.stockQty).label('total')).first().total
+    total_debt = Customer.query.with_entities(func.sum(Customer.debt).label('total')).first().total
+    customer_count=Customer.query.count()
+    total_titles=Books.query.count()
+    total_issues=db.session.query(transactions).count()
+    total_amount = db.session.query(transactions).with_entities(func.sum(transactions.c.cost).label('total')).first().total
+
+    return render_template('index.html',most_popular=most_popular,highest_paying=highest_paying,
+                                        total_books=sum,total_customer=customer_count,
+                                        total_issues=total_issues,highest_debt=highest_debt,
+                                        least_stock=least_stock,total_amount=total_amount,
+                                        total_titles=total_titles,total_debt=total_debt)
 
 
 @app.route('/books')
@@ -120,6 +135,9 @@ def issue_book():
     if request.method=='POST':
         book_id=int(request.form['book_id'])
         cust_id=int(request.form['cust_id'])
+        book = Books.query.filter_by(book_id=book_id).first()
+        book.timesIssued += 1
+        book.stockQty -= 1
         t = transactions.insert().values(book_id=book_id,cust_id=cust_id)
         db.engine.execute(t)
         db.session.commit()
@@ -221,15 +239,22 @@ def pay_dues(id):
     else:
         return render_template('pay_dues.html',cust=cust)
 
+@app.route('/books_store/<int:id>/<search>', methods=['GET', 'POST'])
+@app.route('/books_store/<int:id>', methods=['GET', 'POST'])
 @app.route('/books_store', methods=['GET', 'POST'])
-def books_store():
-    if request.method=='POST':
-        search=request.form['search_box']
+def books_store(id=1,search=''):
+    if request.method=='POST' or search != "":
+        try:
+            search=request.form['search_box']
+        except:
+            pass
         if not search=="":
-            r = requests.get('https://frappe.io/api/method/frappe-library?title='+search)
+            r = requests.get('https://frappe.io/api/method/frappe-library?title='+search+'&page='+str(id))
         # result = request.get_json("https://frappe.io/api/method/frappe-library?title="+search)
             print(r)
-            return render_template('books_store.html',books=json.loads(r.text)['message'])
+            return render_template('books_store.html',books=json.loads(r.text)['message'],search=search,page_no=id+1)
+        else:
+            return render_template('books_store.html')    
 
     else:
         return render_template('books_store.html')
