@@ -29,13 +29,15 @@
 
         <table id="addTeacherTable">
             <tr>
+                {% if id %}
                 <td style="width: 20%;"><label class="formLabel">Book ID</label></td>
-                <td style="width: 60%;"><input type="text" name="book_id" id="book_id"
-                        class="formInput"></td>
+                <td style="width: 60%;"><input type="text" name="book_id" id="book_id" value="{{id}}"
+                        class="formInput" required aria-required="true"></td>
+                {% endif %}
             </tr>
             <tr>
                 <td><label class="formLabel">Customer ID</label></td>
-                <td><input type="text" name="cust_id" id="cust_id" class="formInput"></td>
+                <td><input type="text" name="cust_id" id="cust_id" class="formInput" required aria-required="true"></td>
             </tr>
             
                 <td colspan="2"></td>

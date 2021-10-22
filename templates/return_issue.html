@@ -24,22 +24,6 @@
 
 
 <div class="cardRow2 tablecard">
-    <!-- <div style="display: flex;flex-wrap: wrap;" class="table_inside_row">
-        <div style="flex:0 0 60%;flex-grow: 3;">
-            <input type="text" id="search_box" placeholder="Search .." style="margin: 1%;width: 95%;">
-        </div>
-        <div style="margin-top: 1.5%;">
-            <div class="dropdown">
-                <button class="dropbtn btn-success">Admit</button>
-            </div>
-        </div>
-        <div style="margin-top: 1.5%;">
-            <div class="dropdown">
-                <button class="dropbtn btn-danger">Remove</button>
-            </div>
-        </div>
-    </div> -->
-
     <table class="attendance_form_table">
         <thead>
             <tr style="text-align: left;">
@@ -65,18 +49,20 @@
                     <td>{{book[4]}}</td>
                     <td>
                         <div class="dropdown">
-                            <input type="date" class="dropinput" style="outline: none;" value="{{book[5]}}" disabled
+                            <input type="date" class="dropinput" style="outline: none;" value="{{book[6]}}" disabled
                                 aria-disabled="true">
                         </div>
                     </td>
                     <td>{{book[7]}}</td>
                     {% if book[7] == "live" %}
                     <td><input type="text" name="cost" id="cost" class="formInput" style="width: 50%;">
-                        <input type="text" name="cust_id" id="cust_id" class="formInput" value="{{book[3]}}" style="width: 50%;display:none;"></td>
+                        <input type="text" name="cust_id" id="cust_id" class="formInput" value="{{book[3]}}"
+                            style="width: 50%;display:none;" required aria-required="true">
+                    </td>
                     <td><button type="submit" class="dropbtn btn-danger">Delete</button></td>
 
                     {% else %}
-                        <td>{{ book[5] }}</td>
+                    <td>{{ book[5] }}</td>
                     {% endif %}
                 </tr>
             </form>

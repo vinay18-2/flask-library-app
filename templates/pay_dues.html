@@ -45,8 +45,8 @@
             </tr>
             <tr>
                 <td style="width: 20%;"><label class="formLabel">Amount</label></td>
-                <td style="width: 60%;"><input type="text" name="due" id="due"
-                        class="formInput"></td>
+                <td style="width: 60%;"><input type="number" name="due" id="due"
+                        class="formInput" required aria-required="true" max="{{cust.debt}}" min="0"></td>
             </tr>
 
                 <td colspan="2"></td>

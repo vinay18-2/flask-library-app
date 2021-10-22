@@ -90,7 +90,6 @@ def index():
 @app.route('/books')
 def books():
     all_books=Books.query.all()
-    print(all_books)
     return render_template('books.html', all_books=all_books)
 
 @app.route('/add_books', methods=['GET', 'POST'])
@@ -131,7 +130,8 @@ def delete_book(id):
     return redirect('/books')
 
 @app.route('/issue_book', methods=['GET', 'POST'])
-def issue_book():
+@app.route('/issue_book/<int:id>', methods=['GET','POST'])
+def issue_book(id):
     if request.method=='POST':
         book_id=int(request.form['book_id'])
         cust_id=int(request.form['cust_id'])
@@ -142,6 +142,8 @@ def issue_book():
         db.engine.execute(t)
         db.session.commit()
         return redirect('/return_issue')
+    elif request.method=='GET':
+        return render_template('issue_book.html',id=id)
     else:
         return render_template('issue_book.html')
 
@@ -150,7 +152,6 @@ def return_issue():
     # t = transactions.insert().values(cust_id=1,book_id=1,cost=10)
     # db.engine.execute(t)
     # db.session.commit()
-    print(db.session.query(transactions).all())
     issued_books=db.session.query(transactions).all()
     books_issued=[]
     for book in issued_books:
@@ -163,10 +164,11 @@ def return_issue():
         cust_details = Customer.query.filter_by(cust_id=book[2]).one()
         bi.append(cust_details.name)
         bi.append(book.cost)
-        bi.append(book.issue_date.date())
+        date = book.issue_date.date()
+        bi.append(date)
         bi.append(book.status)
+        print(bi)
         books_issued.append(bi)
-    print(books_issued)
     return render_template('return_issue.html',issued_books=books_issued)
 
 @app.route('/books/return/<int:id>', methods=['GET', 'POST'])
@@ -174,8 +176,7 @@ def return_book(id):
     if request.method=='POST':
         costForm=int(request.form['cost'])
         cust_id = int(request.form['cust_id'])
-        print(costForm)
-        print(cust_id)
+ 
         # t = db.session.query(db.exists().where(transactions.trans_id == id)).scalar()
         stmt1 = ( update(transactions).where(transactions.c.trans_id == id).values(cost = costForm))
         stmt2 = ( update(transactions).where(transactions.c.trans_id == id).values(status = "closed"))
@@ -184,7 +185,6 @@ def return_book(id):
         cust = Customer.query.filter_by(cust_id=cust_id).first()
         cust.total_trans += costForm
         cust.debt += costForm
-        print(Customer.query.filter_by(cust_id=cust_id).first())
         # transactions.update().where(transactions.c.trans_id == id).values(cost = transactions.c.cost + costForm)
         # transactions.update().where(transactions.c.trans_id == id).values(status = "closed")
         # db.engine.execute(t)
