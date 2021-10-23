@@ -119,7 +119,7 @@ def delete_book(id):
 
 @app.route('/issue_book', methods=['GET', 'POST'])
 @app.route('/issue_book/<int:id>', methods=['GET','POST'])
-def issue_book(id):
+def issue_book(id=1):
     if request.method=='POST':
         book_id=int(request.form['book_id'])
         cust_id=int(request.form['cust_id'])
