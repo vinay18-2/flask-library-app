@@ -1,0 +1,28 @@
+pipeline {
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the Git repository
+                sh 'git clone https://github.com/GOUSERABBANI44/flask-library-app.git'
+            }
+        }
+        stage('Make Script Executable') {
+            steps {
+                  // Change to the project directory
+                dir('flask-library-app') {
+                    // Make the script executable
+                    sh 'chmod +x data.sh'
+                }
+            }
+        }
+        stage('Run Script') {
+            steps {
+                 // Change to the project directory
+                dir('flask-library-app') {
+                    // Run the script
+                    sh './data.sh'
+                }
+            }
+        }
+    }
+}
